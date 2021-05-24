@@ -65,12 +65,11 @@ const questions = [
 async function init() {
     try{
         const answers = await inquirer.prompt(questions);
-        // console.log(answers);
-        //Pass in user answers to the generate markdown javascript:
+        //Pass in user answers to the generate the markdown 
         let generate = generator(answers);
         
         //Write the README.md file using the generate data and error catching.
-        fs.writeFile('README.md', generate, err => {
+        fs.writeFile('exampleREADME.md', generate, err => {
             if (err) {
               console.error(err)
               return
