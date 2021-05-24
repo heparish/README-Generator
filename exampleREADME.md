@@ -30,5 +30,5 @@
 :octocat: Find me on GitHub: [@heparish](https://github.com/@heparish)<br />
 <br />
 ✉️ Email me with any questions: heparish@ucdavis.edu<br /><br />
-_This README was generated with ❤️ by [README-generator](https://github.com/jpd61/README-generator) 🔥🔥🔥_
+_This README was generated with ❤️ by [README-generator](https://github.com/heparish/README-generator) 🔥🔥🔥_
   
