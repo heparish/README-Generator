@@ -1,20 +1,39 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+// generateReadme function populating the README.md
+function generateReadme(answers) {
+  return `
+<h1 align="center">${answers.projectTitle}</h1>
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
-
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
-
-`;
+## Description
+🔍 ${answers.description}
+## Table of Contents
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Coding Style](#codingStyle)
+- [Contributing](#contributing)
+- [API's](#API)
+- [Tests](#tests)
+- [Questions](#questions)
+## Installation
+💾 ${answers.installation}
+## Usage
+💻 ${answers.usage}
+## Coding Style
+ ${answers.codingStyle}
+## Contributing
+👪 ${answers.contributing}
+## API's
+ ${answers.API}
+## Tests
+✏️ ${answers.tests}
+## Questions
+✋ ${answers.questions}<br />
+<br />
+:octocat: Find me on GitHub: [${answers.username}](https://github.com/${answers.username})<br />
+<br />
+✉️ Email me with any questions: ${answers.email}<br /><br />
+_This README was generated with ❤️ by [README-generator](https://github.com/jpd61/README-generator) 🔥🔥🔥_
+  `;
 }
 
-module.exports = generateMarkdown;
+module.exports = generateReadme;

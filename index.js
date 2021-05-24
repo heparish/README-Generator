@@ -1,21 +1,14 @@
 // TODO: Include packages needed for this application
 const fs = require("fs");
-const util = require("util");
 const inquirer = require("inquirer");
-const generateMarkdown = require("./utils/generateMarkdown")
+const generator = require('./utils/generateMarkdown.js');
 
 // TODO: Create an array of questions for user input
-function promptUser(){
-    return inquirer.prompt([
+const questions = [
         {
             type: "input",
             name: "projectTitle",
             message: "What is the title of this project?",
-        },
-        {
-            type: "input",
-            name: "motivation",
-            message: "Please write a brief description of what motivated you to create this project: "
         },
         {
             type: "input",
@@ -26,6 +19,11 @@ function promptUser(){
             type: "input",
             name: "installation",
             message: "Describe the installation process if any: ",
+        },
+        {
+            type: "input",
+            name: "usage",
+            message: "Describe the usage of this project: ",
         },
         {
             type: "input",
@@ -53,20 +51,6 @@ function promptUser(){
             message: "What do I do if I have an issue? "
         },
         {
-            type: "list",
-            name: "license",
-            message: "Chose the appropriate license for this project: ",
-            choices: [
-                "Apache",
-                "Academic",
-                "GNU",
-                "ISC",
-                "MIT",
-                "Mozilla",
-                "Open"
-            ]
-        },
-        {
             type: "input",
             name: "username",
             message: "Please enter your GitHub username: "
@@ -76,14 +60,26 @@ function promptUser(){
             name: "email",
             message: "Please enter your email: "
         }
-    ]);
-} 
+    ];
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
-
-// TODO: Create a function to initialize app
-function init() {}
+async function init() {
+    try{
+        const answers = await inquirer.prompt(questions);
+        // console.log(answers);
+        //Pass in user answers to the generate markdown javascript:
+        let generate = generator(answers);
+        
+        //Write the README.md file using the generate data and error catching.
+        fs.writeFile('README.md', generate, err => {
+            if (err) {
+              console.error(err)
+              return
+            }
+        });
+    } catch(error){
+        console.log(error);
+    }
+};
 
 // Function call to initialize app
 init();
